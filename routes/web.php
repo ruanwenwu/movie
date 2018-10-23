@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +12,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@Index');
+Route::get('/{cate}/{id}','IndexController@Detail');

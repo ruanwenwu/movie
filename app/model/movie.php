@@ -2,9 +2,17 @@
 
 namespace App\model;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
-class movie extends Model
+class movie
 {
-    ///     
+    //获取首页推荐
+    public static function getIndexRecommend($num=36){
+        return DB::select("select * from movies where smallpic != '' and downloadurl != '' order by pubdate desc limit {$num}");
+    }
+    
+    //获取详情信息
+    public static function getDetailInfo($id){
+        return DB::select("select * from movies where id = :id",["id"=>$id]);
+    }
 }
