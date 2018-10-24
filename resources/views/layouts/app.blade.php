@@ -65,11 +65,11 @@
     <!-- 主内容 -->
     <div class="main">
         <div class="wp">
-            <div class="container">
+            
                 @section("container")                	                               
                 		主体部分
                 	@show
-            </div>
+            
         </div>
     </div>
     <!-- 主内容 end--> 

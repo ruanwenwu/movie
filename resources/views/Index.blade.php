@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('title')
-laravel
+0.3电影网
 @endsection
 
 @section('container')
+<div class="container">
 	<div class="m-recom">
         <div class="g-tit1">
             <a href="/html/dianying.html" target="_blank">更多..</a>
@@ -40,4 +41,5 @@ laravel
             <p><span>权重大于7的</span><span>欢迎友链</span></p>
         </div>
     </div>
+ </div>
 @endsection

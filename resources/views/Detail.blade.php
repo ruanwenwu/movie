@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('container')
+<div class="container">
 <div class="m-details">
 	 <div class="cur">
         当前位置：<a href='/'>飘花电影</a>><a href='{{$cate['url']}}'>{{$cate['name']}}</a>>>
@@ -20,5 +21,6 @@
           </div>
     		
     </div>
+</div>
 </div>
 @endsection

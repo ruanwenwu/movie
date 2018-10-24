@@ -60,4 +60,53 @@ class Index{
         }
     }
     
+    /**
+     * 获得电影总数
+     */
+    public static function getMovieTotal(){
+        $res = movie::getMovieTotal();
+        return $res[0]->c;
+    }
+    
+    /**
+     * 获得分类推荐数据
+     */
+    public static function getCateRecom($cate,$pagesize){
+       if(!$cate) return false;
+       $res = movie::getCateList($cate,$pagesize);
+       if($res && is_array($res)){
+           foreach($res as $re){
+               $ori = strip_tags($re->oricontent);
+               $ori = preg_replace(array("/\n|\r\n|\t/","/{$re->name}迅雷下载地址和剧情：/"), "", $ori);
+               $re->brief = mb_substr($ori,0,35,"utf-8")."...";
+               if(strpos($re->smallpic,"http")===false){
+                   $re->smallpic = "http://www.piaohua.com".$re->smallpic;
+               }
+               $re->name = preg_replace("/HD\d+.*$/", "", $re->name);
+           }
+       }
+       return $res;
+    }
+    
+    /**
+     * 获得分类分页数据
+     */
+    public static function getCateData($cate,$page,$pagesize){
+        if(!$cate) return false;
+        $start = ($page - 1 )*$pagesize;
+        $res = movie::getCateList($cate,$start,$pagesize);
+        if($res && is_array($res)){
+            foreach($res as $re){
+                $ori = strip_tags($re->oricontent);
+                $ori = preg_replace(array("/\n|\r\n|\t/"), "", $ori);
+                $re->brief = trim(mb_substr($ori,0,80,"utf-8"))."...";
+                if(strpos($re->smallpic,"http")===false){
+                    $re->smallpic = "http://www.piaohua.com".$re->smallpic;
+                }
+                $re->name = preg_replace("/HD\d+.*$/", "", $re->name);
+            }
+        }
+        return $res;
+    }
+    
 }

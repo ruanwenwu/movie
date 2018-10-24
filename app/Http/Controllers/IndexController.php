@@ -3,7 +3,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Service\Index;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
+use App\Service\Page;
 
 class IndexController extends Controller
 {
@@ -35,6 +37,23 @@ class IndexController extends Controller
         $data['details']    = $res[0];
         $data['cate']   = ["name"=>$cateChinese,"url"=>"/{$cate}.html"];
         return view("Detail",$data);
+    }
+    
+    public function Lists(Request $request,$cate,$page=1){
+        //获得列表推荐数据
+        $cateRecom = Index::getCateRecom($cate,18);
+        //获得当页数据
+        $pageSize = 12;
+        $cateData = Index::getCateData($cate,$page,$pageSize);
+        $total = Index::getMovieTotal();
+        $pageUrlInitial = "/{$cate}/p_".urlencode("[PAGE]").".html";
+        $pageObj = new Page($page,$total,$pageSize,array(),$pageUrlInitial);
+        $pageStr = $pageObj->show();
+        $data['recom'] = $cateRecom;
+        $data['data']  = $cateData;
+        $data['cate']  = $cate;
+        $data['pagestr'] = $pageStr;
+        return view("Lists",$data);
     }
     
 }

@@ -15,4 +15,15 @@ class movie
     public static function getDetailInfo($id){
         return DB::select("select * from movies where id = :id",["id"=>$id]);
     }
+    
+    //获取电影总数
+    public static function getMovieTotal(){
+        return DB::select("select count(*) as c from movies where smallpic != '' and downloadurl != ''");
+        
+    }
+    
+    //获得分类推荐（分类最新)数据
+    public static function getCateList($cate,$start=0,$offset=20,$orderby='pubdate desc'){
+        return DB::select("select * from movies where etype='{$cate}' and smallpic != '' and downloadurl != '' order by {$orderby} limit {$start},{$offset}");
+    }
 }

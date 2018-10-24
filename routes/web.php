@@ -13,4 +13,8 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::get('/', 'IndexController@Index');
+Route::get('/{cate}.html','IndexController@Lists');
+Route::get('/{cate}/p_{page}.html','IndexController@Lists');
 Route::get('/{cate}/{id}','IndexController@Detail');
+
+
