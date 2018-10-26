@@ -56,14 +56,12 @@ class IndexController extends Controller
         return view("Lists",$data);
     }
     
-    public function Search(Request $request){
+    public function Search(Request $request,$keywords,$page=1){
         $s = new \SphinxClient;
-        $keywords = $request->get("keyword");
         $s->setServer("101.200.168.135", 9313);
         $s->setMatchMode(SPH_MATCH_PHRASE);
         $s->setMaxQueryTime(30);
         $perPage = 30;
-        $page = $request->get("page") ? $request->get("page") : 1;
         $start = ($page - 1)*$perPage;
         $s->setLimits($start, $perPage);
         $res = $s->query($keywords,'*'); #[宝马]关键字，[main]数据源source

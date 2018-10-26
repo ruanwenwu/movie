@@ -17,7 +17,7 @@
 					<li class="col-md-6">
 						<div class="pic"><a href="/{{$movie->etype}}/{{$movie->id}}.html"><img src="{{$movie->smallpic}}" alt="" /></a></div>
 						<div class="txt">
-							<h3><a href="/html/kehuan/2018/0509/33652.html"><font color='red'><font color='red'>头号</font><font color='red'>玩家</font></font><em>BD1280高清</em></a></h3>
+							<h3><a href="/html/kehuan/2018/0509/33652.html"><font color='red'>{{$movie->name}}</font><em>BD1280高清</em></a></h3>
 							<p>◎片 名 <font color='red'>{{$movie->name}}</font></p>
 							<span>影片分类：<a href="/{{$movie->etype}}.html" target="_blank">{{env("config")['cate'][$movie->etype]}}</a></span>
 							<span>
