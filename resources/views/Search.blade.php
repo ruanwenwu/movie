@@ -10,7 +10,7 @@
 		<div class="col-md-12">
 			<div class="m-film">
 				<div class="cur">
-					<font color="red">{{$keywords}}</font>搜索结果
+					<font color="red">{{$keyword}}</font>搜索结果
 				</div>
 				<ul class="ul-imgtxt2 row">
 					@foreach($movies as $movie)
@@ -28,9 +28,7 @@
 					@endforeach						
 				</ul>
 				<!-- 页码 -->
-				<div class="pages">
-				   共1页/1条记录
-				</div>
+				{{$pagestr}}
 				<!-- 页码 end-->
 			</div>
 		</div>
