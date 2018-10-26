@@ -26,4 +26,12 @@ class movie
     public static function getCateList($cate,$start=0,$offset=20,$orderby='pubdate desc'){
         return DB::select("select * from movies where etype='{$cate}' and smallpic != '' and downloadurl != '' order by {$orderby} limit {$start},{$offset}");
     }
+    
+    //根据id得到电影
+    public static function getMovieByIds($ids){
+        if(!$ids) return false;
+        
+        $sql = "select * from movies where id in ($ids)";
+        return DB::select($sql);
+    }
 }

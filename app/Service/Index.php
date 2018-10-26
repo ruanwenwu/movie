@@ -109,4 +109,26 @@ class Index{
         return $res;
     }
     
+    /**
+     * 根据id字符串得到电影
+     */
+    public static function getMoviesByIds($ids){
+        if(!$ids) return;
+        
+        $idstr = implode(",",$ids);
+        $res = movie::getMovieByIds($idstr);
+        if($res && is_array($res)){
+            foreach($res as $re){
+                $ori = strip_tags($re->oricontent);
+                $ori = preg_replace(array("/\n|\r\n|\t/"), "", $ori);
+                $re->brief = trim(mb_substr($ori,0,80,"utf-8"))."...";
+                if(strpos($re->smallpic,"http")===false){
+                    $re->smallpic = "http://www.piaohua.com".$re->smallpic;
+                }
+                $re->name = preg_replace("/HD\d+.*$/", "", $re->name);
+            }
+        }
+        return $res;
+    }
+    
 }
