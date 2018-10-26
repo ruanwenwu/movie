@@ -56,4 +56,18 @@ class IndexController extends Controller
         return view("Lists",$data);
     }
     
+    public function Search(Request $request){
+        $s = new \SphinxClient;
+        $keywords = "家";
+        $s->setServer("101.200.168.135", 9312);
+        $s->setMatchMode(SPH_MATCH_PHRASE);
+        $s->setMaxQueryTime(30);
+        $s->setLimits(0, 30);
+        $res = $s->query($keywords,'*'); #[宝马]关键字，[main]数据源source
+        $err = $s->GetLastError();
+        $total = $res['total'];
+        echo $total;die;
+        die;
+    }
+    
 }
