@@ -59,7 +59,7 @@ class IndexController extends Controller
     public function Search(Request $request){
         $s = new \SphinxClient;
         $keywords = $request->get("keyword");
-        $s->setServer("101.200.168.135", 9312);
+        $s->setServer("101.200.168.135", 9313);
         $s->setMatchMode(SPH_MATCH_PHRASE);
         $s->setMaxQueryTime(30);
         $perPage = 30;
@@ -71,8 +71,12 @@ class IndexController extends Controller
         $total = $res['total'];
         $movieIds = array_keys($res['matches']);
         $movies = Index::getMoviesByIds($movieIds);
+	$pageUrlInitial = "/search/{$keywords}/p_".urlencode("[PAGE]").".html";
+	$pageObj = new Page($page,$total,$perPage,array(),$pageUrlInitial);
+        $pageStr = $pageObj->show();
         $data['movies'] = $movies;
         $data['keyword'] = $keywords;
+	$data['pagestr'] = $pageStr;
         //根据id查询电影内容
         return view("Search",$data);
     }
