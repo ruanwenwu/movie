@@ -106,4 +106,12 @@
 	</script>
 <div style="display:none"><script language="javascript" src="/js/yzz/tj.js?=1016"></script></div>
 </body>
+<script>
+	var form1 = document.getElementById("form1");
+	form1.onsubmit=function(){
+		var keyword = document.getElementById("search-keyword").value;
+		location.href="/search/"+keyword+".html";
+		return false;
+	}
+</script>
 </html>
