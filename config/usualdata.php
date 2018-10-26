@@ -10,6 +10,7 @@ return [
         "zhanzheng" =>  "战争",
         "kongbu"    =>  "恐怖",
         "zainan"    =>  "灾难",
-        "dongman"   =>  "动漫"
+        "dongman"   =>  "动漫",
+	"xuannian"  =>	"悬念"
     ]
 ];
