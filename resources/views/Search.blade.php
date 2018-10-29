@@ -36,8 +36,6 @@
 				{!!$pagestr!!}
 				<!-- 页码 end-->
 				@endif
-					
-				@endif
 			</div>
 		</div>
 	</div>
