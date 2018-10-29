@@ -98,7 +98,7 @@ class Index{
         if($res && is_array($res)){
             foreach($res as $re){
                 $ori = strip_tags($re->oricontent);
-                $ori = preg_replace(array("/\n|\r\n|\t/"), "", $ori);
+                $ori = preg_replace(array("#\n|\r\n|\t#"), "", $ori);
                 $re->brief = trim(mb_substr($ori,0,80,"utf-8"))."...";
                 if(strpos($re->smallpic,"http")===false){
                     $re->smallpic = "http://www.piaohua.com".$re->smallpic;
