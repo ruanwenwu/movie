@@ -19,7 +19,7 @@
     <div class="header visible-xs-block">
         <div class="wp">
         	<div class="logo">
-        		<a href="/"><img src="https://www.piaohua.com/templets/new/images/logo.png" alt="飘花资源网"></a>
+        		<a href="/"><img src="/logo.png" alt="飘花资源网"></a>
         	</div>
             <div class="right">
                  <div class="hd-top">
