@@ -12,6 +12,7 @@
 				<div class="cur">
 					<font color="red">{{$keyword}}</font>搜索结果
 				</div>
+				@if($total>0)
 				<ul class="ul-imgtxt2 row">
 					@foreach($movies as $movie)
 					<li class="col-md-6">
@@ -30,6 +31,9 @@
 				<!-- 页码 -->
 				{!!$pagestr!!}
 				<!-- 页码 end-->
+				@else
+					暂未收入<span>{{$keyword}}</span>相关的电影哦~~
+				@endif
 			</div>
 		</div>
 	</div>

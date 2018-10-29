@@ -70,14 +70,17 @@ class IndexController extends Controller
         $res = $s->query($keywords,'*'); #[宝马]关键字，[main]数据源source
         $err = $s->GetLastError();
         $total = $res['total'];
-        $movieIds = array_keys($res['matches']);
-        $movies = Index::getMoviesByIds($movieIds);
-	$pageUrlInitial = "/search/{$keywords}/p_".urlencode("[PAGE]").".html";
-	$pageObj = new Page($page,$total,$perPage,array(),$pageUrlInitial);
-        $pageStr = $pageObj->show();
-        $data['movies'] = $movies;
+        if($total){
+            $movieIds = array_keys($res['matches']);
+            $movies = Index::getMoviesByIds($movieIds);
+    	        $pageUrlInitial = "/search/{$keywords}/p_".urlencode("[PAGE]").".html";
+    	        $pageObj = new Page($page,$total,$perPage,array(),$pageUrlInitial);
+            $pageStr = $pageObj->show();
+            $data['movies'] = $movies;
+            $data['pagestr'] = $pageStr;
+        }
         $data['keyword'] = $keywords;
-	$data['pagestr'] = $pageStr;
+	    $data['total'] = $total;
         //根据id查询电影内容
         return view("Search",$data);
     }
