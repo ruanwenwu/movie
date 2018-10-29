@@ -3,12 +3,18 @@
 @section('title')
 0.3电影网
 @endsection
+@section('keywords')
+{{$keywords}}
+@endsection
+@section('description')
+{{$description}}
+@endsection
 
 @section('container')
 <div class="container">
 	<div class="m-recom">
         <div class="g-tit1">
-            <a href="/html/dianying.html" target="_blank">更多..</a>
+            <!--<a href="/html/dianying.html" target="_blank">更多..</a>-->
             <h3>今日热门电影推荐</h3>
         </div>
 		 <ul class="ul-imgtxt1 row">
@@ -26,7 +32,7 @@
         </ul>
     </div>
     
-    <div class="m-link">
+    <!--<div class="m-link">
         <span class="tit">友情连接</span>
         <div class="txt">
             <div class="link">
@@ -40,6 +46,6 @@
             </div>
             <p><span>权重大于7的</span><span>欢迎友链</span></p>
         </div>
-    </div>
+    </div>-->
  </div>
 @endsection

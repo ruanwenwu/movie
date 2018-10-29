@@ -14,6 +14,9 @@ class IndexController extends Controller
         $data = array();    //首页模板数据
         $recommendData = Index::getTodayRecommend();
         $data['recommend'] = $recommendData;       
+        $data['title']     = "最新电影下载_0.3电影网首页_最全电影下载网站-0.3电影库";
+        $data['keywords'] = "最新电影下载大全,迅雷电影下载,电影下载,0.3电影,0.3电影网,动作片下载,爱情片下载,喜剧片下载,伦理片下载,动画片下载";
+        $data['description'] = "0.3电影网库提供10多个类别，2万多部电影的下载,包括动作、爱情、剧情、悬疑、动漫、战争等热门分类,为您提供有效实用的电影资讯和下载链接,实时权威的电影下载就在0.3电影网";
         return view("Index",$data);
     }
     

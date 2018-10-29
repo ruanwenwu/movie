@@ -11,6 +11,7 @@ return [
         "kongbu"    =>  "恐怖",
         "zainan"    =>  "灾难",
         "dongman"   =>  "动漫",
-	"xuannian"  =>	"悬念"
-    ]
+	   "xuannian"  =>	"悬念"
+    ],
+    'host'  =>  'http://www.0dian3.com'
 ];
