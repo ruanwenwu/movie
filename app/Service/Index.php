@@ -77,7 +77,7 @@ class Index{
        if($res && is_array($res)){
            foreach($res as $re){
                $ori = strip_tags($re->oricontent);
-               $ori = preg_replace(array("/\n|\r\n|\t/","/{$re->name}迅雷下载地址和剧情：/"), "", $ori);
+               $ori = preg_replace(array("#\n|\r\n|\t#","#{$re->name}迅雷下载地址和剧情：#"), "", $ori);
                $re->brief = mb_substr($ori,0,35,"utf-8")."...";
                if(strpos($re->smallpic,"http")===false){
                    $re->smallpic = "http://www.piaohua.com".$re->smallpic;
