@@ -1,9 +1,20 @@
 @extends('layouts.app')
+@section('title')
+{{$title}}
+@endsection
+@section('keywords')
+{{$keywords}}
+@endsection
+@section('description')
+{{$description}}
+@endsection
+
+
 @section('container')
 <div class="container">
 <div class="m-details">
 	 <div class="cur">
-        当前位置：<a href='/'>飘花电影</a>><a href='{{$cate['url']}}'>{{$cate['name']}}</a>>>
+        当前位置：<a href='/'>0.3电影</a>><a href='{{$cate['url']}}'>{{$cate['name']}}</a>>>
      </div>
      <div class="m-text1">   
      	<h1>{{$details->name}}</h1>

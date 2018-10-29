@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('title')
+{{$title}}
+@endsection
+@section('keywords')
+{{$keywords}}
+@endsection
+@section('description')
+{{$description}}
 @endsection
 @section('container')
 <div class="container">

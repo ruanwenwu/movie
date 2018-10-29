@@ -39,6 +39,9 @@ class IndexController extends Controller
         },$res[0]->oricontent);
         $data['details']    = $res[0];
         $data['cate']   = ["name"=>$cateChinese,"url"=>"/{$cate}.html"];
+        $data['title']     ="{$res[0]->name}下载_迅雷下载_免费下载_0.3电影网";
+        $data['keywords'] = "{$res[0]->name}迅雷下载,{$res[0]->name}下载,失恋日下载地址";
+        $data['description'] = "{$res[0]->name}迅雷下载、{$res[0]->name}免费下载，在飘花网您可以免费获得{$res[0]->name}的详细剧情介绍,剧照和迅雷高速免费下载地址";
         return view("Detail",$data);
     }
     
@@ -86,6 +89,9 @@ class IndexController extends Controller
         $data['keyword'] = $keywords;
 	    $data['total'] = $total;
         //根据id查询电影内容
+	    $data['title']     ="0.3电影下载网迅雷电影下载站-搜索最新电影电视剧免费下载";
+	    $data['keywords'] = "迅雷下载,免费电影下载,海报剧情";
+	    $data['description'] = "本站每天搜集最新电影、连续剧、MTV、讯雷下载";
         return view("Search",$data);
     }
     

@@ -30,7 +30,7 @@
     <div class="col-md-9">
         <div class="m-film">
             <div class="cur">
-                当前位置：<a href='/'>飘花电影</a>><a href='/html/dongzuo/index.html'>{{config("usualdata")['cate'][$cate]}}片</a>>>迅雷电影列表
+                当前位置：<a href='/'>0.3电影</a>><a href='/html/dongzuo/index.html'>{{config("usualdata")['cate'][$cate]}}片</a>>>迅雷电影列表
             </div>
             <ul class="ul-imgtxt2 row">
             @foreach($data as $cdk => $cdv)
