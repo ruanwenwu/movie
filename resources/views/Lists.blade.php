@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('title')
-list title
+{{$title}}
+@endsection
+@section('keywords')
+{{$keywords}}
+@endsection
+@section('description')
+{{$description}}
 @endsection
 
 @section('container')
@@ -29,13 +35,13 @@ list title
             <ul class="ul-imgtxt2 row">
             @foreach($data as $cdk => $cdv)
 			<li class="col-md-6">
-                    <div class="pic"><a href="{{$cdv->smallpic}}"><img src="{{$cdv->smallpic}}" alt="<b><font color='#FF0000'>{{$cdv->name}}</font></b>" /></a></div>
+                    <div class="pic"><a target="_blank" href="/{{$cdv->etype}}/{{$cdv->id}}.html"><img src="{{$cdv->smallpic}}" alt="<b><font color='#FF0000'>{{$cdv->name}}</font></b>" /></a></div>
                     <div class="txt">
-                        <h3><a href="/{{$red->etype}}/{{$red->id}}.html"><b><font color='#FF0000'>{{$cdv->name}}</font></b><em>BD1280高清</em></a></h3>
+                        <h3><a target="_blank" href="/{{$cdv->etype}}/{{$cdv->id}}.html"><b><font color='#FF0000'>{{$cdv->name}}</font></b><em>BD1280高清</em></a></h3>
                         <p>{{$cdv->brief}}</p>
                         <span>   
 						更新时间：{{$cdv->pubdate}}
-						<a href="/{{$red->etype}}/{{$red->id}}.html">点击下载</a></span>
+						<a href="/{{$cdv->etype}}/{{$cdv->id}}.html">点击下载</a></span>
                     </div>
                 </li>
              @endforeach

@@ -55,7 +55,11 @@ class IndexController extends Controller
         $data['recom'] = $cateRecom;
         $data['data']  = $cateData;
         $data['cate']  = $cate;
+        $cnName = config("usualdata")['cate'][$cate]."片";
         $data['pagestr'] = $pageStr;
+        $data['title']     =$cnName."_迅雷下载_免费下载_0.3电影网";
+        $data['keywords'] = "{$cnName}迅雷下载，免费下载";
+        $data['description'] = "{$cnName}迅雷下载、免费下载，剧情介绍等。";
         return view("Lists",$data);
     }
     

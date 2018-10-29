@@ -52,7 +52,7 @@
                 </form>
             </div>
             <ul>
-                <li><a href="/">飘花首页</a></li>
+                <li><a href="/">0.3首页</a></li>
                 @foreach($nav as $navdetail)
                 <li><a href="{{$navdetail->url}}">{{$navdetail->name}}</a></li>
                 @endforeach
