@@ -10,7 +10,11 @@
 		<div class="col-md-12">
 			<div class="m-film">
 				<div class="cur">
+					@if($total>0)
 					<font color="red">{{$keyword}}</font>搜索结果
+					@else
+					暂未收入<span>{{$keyword}}</span>相关的电影哦~~
+					@endif
 				</div>
 				@if($total>0)
 				<ul class="ul-imgtxt2 row">
@@ -31,8 +35,8 @@
 				<!-- 页码 -->
 				{!!$pagestr!!}
 				<!-- 页码 end-->
-				@else
-					暂未收入<span>{{$keyword}}</span>相关的电影哦~~
+				@endif
+					
 				@endif
 			</div>
 		</div>
